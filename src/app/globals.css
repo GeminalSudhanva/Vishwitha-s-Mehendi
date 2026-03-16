@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-burgundy-50: #fdf8f9;
+  --color-burgundy-100: #f8ecef;
+  --color-burgundy-200: #f1d8de;
+  --color-burgundy-300: #e5b9c4;
+  --color-burgundy-400: #d490a2;
+  --color-burgundy-500: #be6b82;
+  --color-burgundy-600: #a34d65;
+  --color-burgundy-700: #893b51;
+  --color-burgundy-800: #733345;
+  --color-burgundy-900: #602d3c;
+  --color-gold-400: #daba6c;
+  --color-gold-500: #c9a84c;
+  --color-gold-600: #b08d33;
+  --color-ivory: #faf8f5;
+  --color-rose-100: #ffe4e6;
+  --color-rose-500: #f43f5e;
+  
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-burgundy-900);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Animations & Utilities */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
 }

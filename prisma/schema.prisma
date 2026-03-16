@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  name            String
+  phone           String
+  email           String
+  eventType       String
+  date            DateTime
+  timeSlot        String
+  locationType    String
+  specialRequests String?  @db.Text
+  status          String   @default("PENDING") // PENDING, CONFIRMED, COMPLETED, CANCELLED
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Service {
+  id              String   @id @default(cuid())
+  name            String
+  description     String   @db.Text
+  priceFrom       Int
+  durationMinutes Int
+  category        String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Gallery {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  category  String
+  caption   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  clientName String
+  review     String   @db.Text
+  rating     Int      @default(5)
+  eventType  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

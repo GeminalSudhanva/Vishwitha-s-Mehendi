@@ -9,17 +9,38 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@prisma/client": "^7.5.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "cross-env": "^10.1.0",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.37.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "next-auth": "^4.24.13",
+    "next-cloudinary": "^6.17.5",
+    "nodemailer": "^7.0.13",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-day-picker": "^9.14.0",
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.71.2",
+    "react-hot-toast": "^2.6.0",
+    "resend": "^6.9.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "prisma": "^7.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
