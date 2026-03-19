@@ -80,18 +80,7 @@ export default function ContactPage() {
 
                 {/* RIGHT COLUMN: Contact Information */}
                 <div className="space-y-8 pt-4 md:pt-10">
-                    {/* Item 1: Studio */}
-                    <div className="flex gap-4">
-                        <div className="bg-[#EAE1D7] p-3 rounded-full h-fit text-burgundy-900">
-                            <MapPin size={18} />
-                        </div>
-                        <div>
-                            <h4 className="text-sm font-semibold text-burgundy-900">Our Studio</h4>
-                            <p className="text-xs text-burgundy-800/70 mt-1 leading-relaxed">
-                                12 Luxury Lane, Art District<br /> South Extension II, New Delhi, 110049
-                            </p>
-                        </div>
-                    </div>
+                    
 
                     {/* Item 2: Phone */}
                     <div className="flex gap-4">
@@ -125,7 +114,7 @@ export default function ContactPage() {
                             <Clock size={18} />
                         </div>
                         <div>
-                            <h4 className="text-sm font-semibold text-burgundy-900">Studio Hours</h4>
+                            <h4 className="text-sm font-semibold text-burgundy-900">Working Hours</h4>
                             <p className="text-xs text-burgundy-800/70 mt-1 leading-relaxed">
                                 Mon - Sat: 10:00 AM - 7:00 PM<br /> Sunday: By Appointment Only
                             </p>
