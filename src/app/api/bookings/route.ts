@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const bookingSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
