@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Clock, Plus, Minus, MapPin, Zap, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function ServicesPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -13,43 +14,33 @@ export default function ServicesPage() {
             id: 1,
             name: "Bridal Full",
             description: "Elaborate traditional patterns covering hands to elbows and feet to knees. Includes figure work and storytelling motifs.",
-            price: "₹15,000 onwards",
+            price: "₹4500 onwards",
             duration: "6-8 hours",
+            image: "/images/Portfolio1.jpeg"
         },
         {
             id: 2,
             name: "Bridal Half",
             description: "Elegant elbow-length bridal designs. Focuses on detailed palm patterns and delicate wrist finishings.",
-            price: "₹8,000 onwards",
+            price: "₹3500 onwards",
             duration: "4-5 hours",
+            image: "/images/Portfolio4.jpeg"
         },
         {
             id: 3,
             name: "Engagement",
             description: "Symbolic patterns for your special ring ceremony. Delicate designs highlighting the ring finger with modern grace.",
-            price: "₹5,000 onwards",
+            price: "₹2500 onwards",
             duration: "3-4 hours",
+            image: "/images/Portfolio5.jpeg"
         },
         {
             id: 4,
             name: "Festive",
             description: "Quick and beautiful designs for Karva Chauth, Diwali, or Eid. Traditional mandalas or modern chains.",
-            price: "₹2,000 onwards",
+            price: "₹1500 onwards",
             duration: "1-2 hours",
-        },
-        {
-            id: 5,
-            name: "Arabic Modern",
-            description: "Contemporary bold floral strokes with negative space. Perfect for bridesmaids or modern aesthetics.",
-            price: "₹3,000 onwards",
-            duration: "2 hours",
-        },
-        {
-            id: 6,
-            name: "Kids",
-            description: "Playful and simple motifs for children. Fast-drying, safe organic paste used for tiny hands.",
-            price: "₹1,000 onwards",
-            duration: "30 mins",
+            image: "/images/Portfolio3.jpeg"
         }
     ];
 
@@ -78,9 +69,14 @@ export default function ServicesPage() {
             <div className="container mx-auto px-6 pb-20 max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
                 {services.map((svc) => (
                     <div key={svc.id} className="bg-white rounded-[24px] overflow-hidden shadow-sm flex flex-col sm:flex-row border border-[#F0EBE3] hover:shadow-md transition-shadow">
-                        {/* Left Side: Empty Image placeholder with standard aspect sizing */}
-                        <div className="w-full sm:w-2/5 aspect-square sm:aspect-auto bg-[#E5DFD5] flex items-center justify-center font-serif text-burgundy-700/30 text-sm">
-                            Blank Image
+                        {/* Left Side: Image */}
+                        <div className="w-full sm:w-2/5 aspect-square sm:aspect-auto bg-[#E5DFD5] relative overflow-hidden">
+                            <Image
+                                src={svc.image}
+                                alt={svc.name}
+                                fill
+                                className="object-cover hover:scale-105 transition-transform duration-500"
+                            />
                         </div>
 
                         {/* Right Side: Content description */}

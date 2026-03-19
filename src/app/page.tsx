@@ -113,7 +113,7 @@ export default function HomePage() {
               <p className="text-sm text-burgundy-700/70 mb-6 font-light">
                 Beautiful elbow length patterns including story motifs and hidden names.
               </p>
-              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From $299</p>
+              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From ₹3500rs</p>
               <Button className="w-full bg-burgundy-800 hover:bg-burgundy-900 text-white rounded-xl">Book Now</Button>
             </div>
 
@@ -124,7 +124,7 @@ export default function HomePage() {
               <p className="text-sm text-burgundy-700/70 mb-6 font-light">
                 Elegant intricate hand design focusing on contemporary floral and mandalas.
               </p>
-              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From $149</p>
+              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From ₹2500</p>
               <Button className="w-full bg-burgundy-800 hover:bg-burgundy-900 text-white rounded-xl">Book Now</Button>
             </div>
 
@@ -135,7 +135,7 @@ export default function HomePage() {
               <p className="text-sm text-burgundy-700/70 mb-6 font-light">
                 Quick and beautiful henna for Eid, Diwali, or Karva Chauth celebrations.
               </p>
-              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From $49</p>
+              <p className="text-lg font-serif text-[#B38E50] mb-6 mt-auto">From ₹1500</p>
               <Button className="w-full bg-burgundy-800 hover:bg-burgundy-900 text-white rounded-xl">Book Now</Button>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function HomePage() {
             Your wedding day deserves the finest mehndi
           </h2>
           <p className="text-ivory/80 mb-10 font-light text-sm md:text-base">
-            Secure your date with Saundarya and experience the art of bridal unique.
+            Secure your date with Tillottama Mehendi's and experience the art of bridal unique.
           </p>
           <Link href="/book">
             <Button size="lg" className="bg-[#B38E50] hover:bg-[#A17D43] text-white px-8 rounded-full shadow-lg">

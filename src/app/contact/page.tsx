@@ -101,7 +101,7 @@ export default function ContactPage() {
                         <div>
                             <h4 className="text-sm font-semibold text-burgundy-900">Phone & Support</h4>
                             <p className="text-xs text-burgundy-800/70 mt-1 leading-relaxed">
-                                +91 11 4000 5000<br /> +91 98765 43210
+                                +91 98765 43210
                             </p>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                         <div>
                             <h4 className="text-sm font-semibold text-burgundy-900">Email Us</h4>
                             <p className="text-xs text-burgundy-800/70 mt-1 leading-relaxed">
-                                hello@saundarya.luxury<br /> bookings@saundarya.luxury
+                                vishwita.shet888@gmail.com<br />
                             </p>
                         </div>
                     </div>
@@ -134,16 +134,20 @@ export default function ContactPage() {
 
                     {/* WhatsApp CTA */}
                     <div className="pt-4">
-                        <button className="w-full bg-[#1AC55A] hover:bg-[#15A84A] text-white rounded-full py-3.5 flex items-center justify-center gap-2 font-semibold shadow-md text-sm">
+                        <a 
+                            href="https://wa.me/919902404384" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="w-full bg-[#1AC55A] hover:bg-[#15A84A] text-white rounded-full py-3.5 flex items-center justify-center gap-2 font-semibold shadow-md text-sm flex justify-center items-center"
+                        >
                             <div className="bg-white/20 p-1 rounded-full"><Phone size={14} className="fill-current text-white" /></div> Chat on WhatsApp
-                        </button>
+                        </a>
                     </div>
 
                     {/* Social Icons */}
                     <div className="flex justify-center gap-4 pt-2">
                         <Link href="#" className="text-[#B38E50] hover:opacity-80"><Instagram size={20} /></Link>
                         <Link href="#" className="text-[#B38E50] hover:opacity-80"><Facebook size={20} /></Link>
-                        <Link href="#" className="text-[#B38E50] hover:opacity-80"><Github size={20} /></Link>
                     </div>
                 </div>
 

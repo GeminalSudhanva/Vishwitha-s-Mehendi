@@ -47,7 +47,7 @@ export default function AboutPage() {
                         </h2>
                         <div className="space-y-4 text-burgundy-800/80 font-light text-sm md:text-base leading-relaxed">
                             <p>
-                                With over eight years of experience in the luxury bridal industry, Saundarya's vision was always to elevate traditional Mehndi into a high art experience. What started as a childhood fascination soon evolved into a master craft that has graced hundreds of brides across the globe.
+                                With over eight years of experience in the luxury bridal industry, Tillottama Mehendi's vision was always to elevate traditional Mehndi into a high art experience. What started as a childhood fascination soon evolved into a master craft that has graced hundreds of brides across the globe.
                             </p>
                             <p>
                                 We believe that bridal henna is more than just decoration; it is a sacred ritual. Our signature style blends heavy traditional Rajasthani motifs with contemporary negative-space designs, ensuring each bride receives a one-of-a-kind masterpiece.

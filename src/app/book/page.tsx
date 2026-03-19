@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/Button";
 import toast from "react-hot-toast";
-import { Clock, MapPin, Home, Calendar } from "lucide-react";
+import { Clock, MapPin, Calendar } from "lucide-react";
 
 const bookingSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -16,23 +16,24 @@ const bookingSchema = z.object({
     date: z.string().min(1, "Preferred date is required"),
     timeSlot: z.string().min(1, "Time slot is required"),
     locationType: z.string().min(1, "Location is required"),
+    homeAddress: z.string().min(10, "Please provide full home address"),
     specialRequests: z.string().optional()
 });
 
-export default function BookingPage({ searchParams }: { searchParams: { service?: string } }) {
+export default function BookingPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+    const params = use(searchParams);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { register, handleSubmit, formState: { errors }, watch, setValue, reset } = useForm<z.infer<typeof bookingSchema>>({
         resolver: zodResolver(bookingSchema),
         defaultValues: {
-            eventType: searchParams.service || "Bridal Mehndi (Full)",
+            eventType: params.service || "Bridal Mehndi (Full)",
             timeSlot: "Afternoon",
-            locationType: "Studio"
+            locationType: "At Home"
         }
     });
 
     const selectedTime = watch("timeSlot");
-    const selectedLocation = watch("locationType");
 
     const onSubmit = async (data: z.infer<typeof bookingSchema>) => {
         setIsSubmitting(true);
@@ -115,8 +116,8 @@ export default function BookingPage({ searchParams }: { searchParams: { service?
                                             type="button"
                                             onClick={() => setValue("timeSlot", slot)}
                                             className={`p-2 rounded-full text-xs font-medium transition-all ${selectedTime === slot
-                                                    ? "bg-[#5C2A33] text-white shadow-sm"
-                                                    : "bg-[#FAF7F2] text-burgundy-900 border border-[#FAF7F2] hover:bg-[#F0EBE3]"
+                                                ? "bg-[#5C2A33] text-white shadow-sm"
+                                                : "bg-[#FAF7F2] text-burgundy-900 border border-[#FAF7F2] hover:bg-[#F0EBE3]"
                                                 }`}
                                         >
                                             {slot}
@@ -127,29 +128,13 @@ export default function BookingPage({ searchParams }: { searchParams: { service?
 
                             {/* Service Location Toggle Custom buttons */}
                             <div className="md:col-span-2">
-                                <label className="block text-xs uppercase tracking-wider font-semibold text-burgundy-900 mb-2">SERVICE LOCATION</label>
-                                <div className="grid grid-cols-2 gap-3 bg-[#FAF7F2] p-1.5 rounded-full">
-                                    <button
-                                        type="button"
-                                        onClick={() => setValue("locationType", "Studio")}
-                                        className={`p-2.5 rounded-full text-xs font-medium transition-all flex justify-center items-center gap-1.5 ${selectedLocation === "Studio"
-                                                ? "bg-[#5C2A33] text-white shadow-md"
-                                                : "text-burgundy-900/60"
-                                            }`}
-                                    >
-                                        <MapPin size={14} className={selectedLocation === "Studio" ? "text-white" : "opacity-40"} /> Studio
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => setValue("locationType", "At Home")}
-                                        className={`p-2.5 rounded-full text-xs font-medium transition-all flex justify-center items-center gap-1.5 ${selectedLocation === "At Home"
-                                                ? "bg-[#5C2A33] text-white shadow-md"
-                                                : "text-burgundy-900/60"
-                                            }`}
-                                    >
-                                        <Home size={14} className={selectedLocation === "At Home" ? "text-white" : "opacity-40"} /> At Home
-                                    </button>
-                                </div>
+                                <label className="block text-xs uppercase tracking-wider font-semibold text-burgundy-900 mb-2">HOME ADDRESS</label>
+                                <input
+                                    {...register("homeAddress")}
+                                    className="w-full p-3 bg-[#FAF7F2] rounded-xl border-0 focus:ring-1 focus:ring-[#B38E50] text-sm"
+                                    placeholder="123 Luxury Lane, Apt 4B, South Extension, Bangalore"
+                                />
+                                {errors.homeAddress && <span className="text-rose-500 text-xs mt-1">{errors.homeAddress.message}</span>}
                             </div>
 
                             {/* Special Requests */}

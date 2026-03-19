@@ -1,12 +1,23 @@
 import Link from "next/link";
-import { Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
     return (
         <footer className="bg-burgundy-900 text-burgundy-50 py-16">
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <h3 className="font-serif text-3xl text-gold-400 mb-6">Saundarya</h3>
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="relative w-16 h-16 flex-shrink-0">
+                            <Image 
+                                src="/images/Logo.png" 
+                                alt="Tillottama Mehendi's" 
+                                fill 
+                                className="object-contain" 
+                            />
+                        </div>
+                        <h3 className="font-serif text-xl text-gold-400">Tillottama Mehendi's</h3>
+                    </div>
                     <p className="text-burgundy-100/80 max-w-sm mb-6">
                         Art that adorns your most sacred day. Specializing in premium, handcrafted organic bridal mehndi designs with years of expertise.
                     </p>
@@ -29,15 +40,14 @@ export function Footer() {
                 <div>
                     <h4 className="font-serif text-xl tracking-wider mb-6 text-gold-400">Contact</h4>
                     <ul className="space-y-4 text-burgundy-100/80">
-                        <li className="flex items-center gap-3"><MapPin size={18} /> 123 Heritage Route, Mumbai</li>
-                        <li className="flex items-center gap-3"><Phone size={18} /> +91 98765 43210</li>
-                        <li className="flex items-center gap-3"><Mail size={18} /> hello@saundarya.com</li>
+                        <li className="flex items-center gap-3"><Phone size={18} /> +91 9902404384</li>
+                        <li className="flex items-center gap-3"><Mail size={18} /> vishwita.shet888@gmail.com</li>
                     </ul>
                 </div>
             </div>
 
             <div className="container mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-burgundy-800 text-center text-sm text-burgundy-200">
-                <p>&copy; {new Date().getFullYear()} Saundarya Mehndi Art. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Tillottama Mehendi's. All rights reserved.</p>
             </div>
         </footer>
     );

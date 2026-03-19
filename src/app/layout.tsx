@@ -15,8 +15,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Saundarya | Luxury Bridal Mehndi",
-  description: "Art that adorns your most sacred day. Premium bridal mehndi by Saundarya.",
+  title: "Tillottama Mehendi's | Luxury Bridal Mehndi",
+  description: "Art that adorns your most sacred day. Premium bridal mehndi by Tillottama Mehendi's.",
 };
 
 import { Navbar } from "@/components/layout/Navbar";

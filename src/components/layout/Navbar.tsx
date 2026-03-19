@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
@@ -27,8 +28,19 @@ export function Navbar() {
     return (
         <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "glass-effect py-4" : "bg-transparent py-6"}`}>
             <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-                <Link href="/" className="text-3xl font-serif text-burgundy-900 font-bold tracking-wider">
-                    Saundarya
+                <Link href="/" className="flex items-center gap-3">
+                    <div className="relative w-16 h-16 flex-shrink-0">
+                        <Image 
+                            src="/images/Logo.png" 
+                            alt="Tillottama Mehendi's" 
+                            fill 
+                            className="object-contain" 
+                            priority
+                        />
+                    </div>
+                    <span className="text-xl font-serif text-burgundy-900 font-bold tracking-wider">
+                        Tillottama Mehendi's
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
