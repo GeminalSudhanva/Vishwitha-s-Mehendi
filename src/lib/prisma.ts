@@ -1,8 +1,10 @@
 import { PrismaClient } from "@prisma/client"
 
-// Fallback to prevent build crashes during static evaluation
 if (!process.env.DATABASE_URL) {
-    process.env.DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/postgres";
+    throw new Error(
+        "DATABASE_URL environment variable is not set. " +
+        "Add it to your Vercel project settings under Environment Variables."
+    )
 }
 
 const globalForPrisma = globalThis as unknown as {
@@ -12,4 +14,3 @@ const globalForPrisma = globalThis as unknown as {
 export const prisma = globalForPrisma.prisma ?? new PrismaClient()
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma
-
