@@ -17,6 +17,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Tillottama Mehendi's | Luxury Bridal Mehndi",
   description: "Art that adorns your most sacred day. Premium bridal mehndi by Tillottama Mehendi's.",
+  verification: {
+    google: "uj-FjGOx2IjxYGeCA0_jc_H55_IB-Hb1BYYFxM_jGF0",
+  },
 };
 
 import { Navbar } from "@/components/layout/Navbar";
