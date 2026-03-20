@@ -1,16 +1,26 @@
 import { PrismaClient } from "@prisma/client"
+import { PrismaPg } from "@prisma/adapter-pg"
 
 const globalForPrisma = globalThis as unknown as {
     prisma: PrismaClient | undefined
 }
 
-// Lazy singleton — PrismaClient reads connection from prisma.config.ts at runtime
-// Using a Proxy so the client is only instantiated on first DB access (not at build time)
+function createPrismaClient(): PrismaClient {
+    const connectionString = process.env.DATABASE_URL
+    if (!connectionString) {
+        throw new Error("DATABASE_URL is not set. Add it to your Vercel environment variables.")
+    }
+    const adapter = new PrismaPg({ connectionString })
+    return new PrismaClient({ adapter })
+}
+
+// Lazy singleton — adapter is created only on first DB access, not at build time
 export const prisma: PrismaClient = new Proxy({} as PrismaClient, {
     get(_target, prop) {
         if (!globalForPrisma.prisma) {
-            globalForPrisma.prisma = new PrismaClient()
+            globalForPrisma.prisma = createPrismaClient()
         }
         return (globalForPrisma.prisma as any)[prop]
     }
 })
+
