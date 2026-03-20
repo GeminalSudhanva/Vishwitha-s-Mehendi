@@ -10,7 +10,8 @@ function createPrismaClient(): PrismaClient {
     if (!connectionString) {
         throw new Error("DATABASE_URL is not set. Add it to your Vercel environment variables.")
     }
-    const adapter = new PrismaPg({ connectionString })
+    // PrismaPg accepts either a Pool instance or a connection config
+    const adapter = new PrismaPg({ connectionString } as any)
     return new PrismaClient({ adapter })
 }
 
@@ -23,4 +24,3 @@ export const prisma: PrismaClient = new Proxy({} as PrismaClient, {
         return (globalForPrisma.prisma as any)[prop]
     }
 })
-
