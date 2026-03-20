@@ -86,7 +86,7 @@ export default function HomePage() {
               Traditional Soul, Modern Vision
             </h2>
             <p className="text-burgundy-800/80 mb-6 leading-relaxed font-light">
-              With roots in the ancient traditions of bridal mehndi, Aisha brings a contemporary flare to henna artistry. Every line is a prayer, every pattern a celebration of the love that binds two souls together.
+              With roots in the ancient traditions of bridal mehndi, Vishwitha brings a contemporary flare to henna artistry. Every line is a prayer, every pattern a celebration of the love that binds two souls together.
             </p>
             <p className="text-lg font-serif italic text-[#B38E50] mb-8">
               "Mehendi is a result, not just art"
