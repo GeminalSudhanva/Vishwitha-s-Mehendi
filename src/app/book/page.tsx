@@ -38,11 +38,34 @@ export default function BookingPage({ searchParams }: { searchParams: Promise<{ 
     const onSubmit = async (data: z.infer<typeof bookingSchema>) => {
         setIsSubmitting(true);
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            const res = await fetch("/api/bookings", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.name,
+                    phone: data.phone,
+                    email: data.email,
+                    eventType: data.eventType,
+                    date: new Date(data.date).toISOString(),
+                    timeSlot: data.timeSlot,
+                    locationType: data.locationType,
+                    specialRequests: data.homeAddress
+                        ? `Address: ${data.homeAddress}${data.specialRequests ? ` | ${data.specialRequests}` : ""}`
+                        : data.specialRequests,
+                }),
+            });
+
+            const result = await res.json();
+
+            if (!res.ok) {
+                toast.error(result.error || "Failed to submit request. Please try again.");
+                return;
+            }
+
             toast.success("Booking Request Sent! We will contact you to confirm.", { duration: 5000 });
             reset();
         } catch (error) {
-            toast.error("Failed to submit request.");
+            toast.error("Something went wrong. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
